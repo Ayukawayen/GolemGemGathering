@@ -5,6 +5,8 @@
 html,body {
 	font-size:20px;
 }
+@media only screen and (max-width: 500px) { html,body {font-size:4vw;} }
+
 
 button {
 	font-size:1rem;
