@@ -11,7 +11,11 @@ let entry = {};
 window.addEventListener('load', onLoaded);
 
 async function onLoaded() {
-	await enableEth();
+	let response = await enableEth();
+	if(response.error) {
+		alert(response.error);
+		return;
+	}
 	
 	await initContract();
 	entry = await getEntry(contract, golemId, bnum);

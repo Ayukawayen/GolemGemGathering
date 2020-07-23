@@ -8,7 +8,11 @@ let golems = [];
 let gems = [];
 
 async function onLoaded() {
-	await enableEth();
+	let response = await enableEth();
+	if(response.error) {
+		alert(response.error);
+		return;
+	}
 	
 	await initContract();
 	golems = await getAccountGolems(contract, web3.eth.defaultAccount);

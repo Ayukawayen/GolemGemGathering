@@ -11,7 +11,11 @@ let golem = {};
 window.addEventListener('load', onLoaded);
 
 async function onLoaded() {
-	await enableEth();
+	let response = await enableEth();
+	if(response.error) {
+		alert(response.error);
+		return;
+	}
 	
 	await initContract();
 	golem = await getGolem(contract, golemId);
