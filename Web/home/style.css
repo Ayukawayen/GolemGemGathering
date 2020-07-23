@@ -1,0 +1,88 @@
+main.home {
+}
+
+main nav {
+	font-family:sans-serif;
+	
+	background-color:#cc9;
+	color:#996;
+}
+main nav >a {
+	display:inline-block;
+	
+	padding:0.5rem 0.25rem;
+	
+	color:#000;
+}
+main nav >a[href] {
+	color:#00f;
+}
+
+main.home .gemTitle, main.home .golemTitle {
+	font-weight:bold;
+	padding:0.25rem 0;
+	
+	background-color:#333;
+	color:#fff;
+}
+main.home .gemList, main.home .golemList {
+	min-height:1rem;
+}
+
+main.home .gemList .gem {
+	display:inline-block;
+	
+	padding:0.25rem;
+	margin:0.25rem;
+	
+	border-radius:0.25rem;
+}
+main.home .gemList .gem:hover {
+	background-color:#ccf;
+}
+main.home .gemList .gem:active {
+	background-color:#0cc;
+}
+
+main.home .gemList .gem .amount {
+	margin-left:0.25rem;
+}
+main.home .gemList .gem .amount:before {
+	content:'x';
+}
+
+
+main.home .golemList .golem {
+	padding:0.25rem;
+}
+
+main.home .golemList .golem >span {
+	display:inline-block;
+	margin-right:0.5rem;
+	
+	vertical-align: middle;
+}
+
+main.home .golemList .golem >span.name {
+	width:6rem;
+}
+main.home .golemList .golem >span.power {
+	width:4rem;
+	text-align:center;
+}
+main.home .golemList .golem >span.slot {
+	width:4rem;
+	text-align:center;
+}
+
+main.home .golemList .golem button {
+	padding:0.5rem;
+}
+
+
+main.home .genGolem {
+	padding:0.25rem;
+}
+main.home .genGolem >button {
+	padding:0.5rem;
+}
