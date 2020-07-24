@@ -65,9 +65,10 @@ Vue.component('home', {
 			props: ['golem'],
 			template: '<div class="golem">'
 				+ '<span class="name"><a :href="golem | href">{{ golem | name }}</a></span>'
+				+ '<span class="lv">{{ golem | lv }}</span>'
 				+ '<span class="power">{{ golem | power }}</span>'
-				+ '<span class="slot">{{ golem | lv }}</span>'
-				+ '<span class="upgrade"><button :disabled="!isUpgradable()" @click="onUpgradeClick">強化</button></span>'
+				+ '<span class="dice">{{ golem | dice }}</span>'
+				+ '<span class="upgrade"><button :disabled="!isUpgradable()" @click="onUpgradeClick">強化 [{{ golem.lv-golem.upgradeUsed }}]</button></span>'
 				+ '<span class="transfer"><button @click="onTransferClick">發送</button></span>'
 			+ '</div>',
 			filters: {
@@ -77,11 +78,14 @@ Vue.component('home', {
 				name: function(golem) {
 					return `Golem #${golem.id}`;
 				},
+				lv: function(golem) {
+					return `Lv${golem.lv}`;
+				},
 				power: function(golem) {
 					return `+${golem.power}`;
 				},
-				lv: function(golem) {
-					return `${golem.upgradeUsed}/${golem.lv}`;
+				dice: function(golem) {
+					return `2D${golem.lv*64}+${golem.power}`;
 				},
 			},
 			

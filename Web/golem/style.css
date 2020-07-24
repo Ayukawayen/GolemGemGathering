@@ -42,7 +42,7 @@ main.golemDetail .entryList .entry >.bnum {
 }
 
 main.golemDetail .entryList .entry >.power {
-	width:3rem;
+	width:7rem;
 	text-align:center;
 }
 

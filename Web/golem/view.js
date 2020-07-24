@@ -56,7 +56,7 @@ Vue.component('entry', {
 			return `../entry/?${golem.id}/${bnum}`
 		},
 		entryPower: function(entry) {
-			return `+${entry.power}`;
+			return `2D${entry.lv*64}+${entry.power}`;
 		},
 		entryOwner: function(entry) {
 			return entry.owner;

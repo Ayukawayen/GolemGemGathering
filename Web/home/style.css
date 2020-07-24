@@ -62,21 +62,34 @@ main.home .golemList .golem >span {
 	
 	vertical-align: middle;
 }
+main.home .golemList .golem >span:last-of-type {
+	margin-right:0;
+}
 
 main.home .golemList .golem >span.name {
-	width:6rem;
-}
-main.home .golemList .golem >span.power {
-	width:4rem;
-	text-align:center;
+	width:4.5rem;
 }
 main.home .golemList .golem >span.lv {
-	width:4rem;
+	width:3rem;
+	text-align:center;
+}
+main.home .golemList .golem >span.power {
+	display:none;
+	
+	width:3rem;
+	text-align:center;
+}
+main.home .golemList .golem >span.dice {
+	width:6.5rem;
 	text-align:center;
 }
 
 main.home .golemList .golem button {
 	padding:0.5rem;
+}
+main.home .golemList .golem .upgrade button {
+	width:5rem;
+	padding:0.5rem 0;
 }
 
 
