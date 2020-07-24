@@ -24,7 +24,7 @@ main.entry .stage {
 	margin:1px 0 0;
 	
 	background-color:#f99;
-}s
+}
 main.entry .stage[clear] {
 	background-color:#9f9;
 }
