@@ -1,45 +1,11 @@
 'use strict';
 
 const ContractMetadata = {
-	addr: '0x65734f4b1900672d896ea15e262209af33d9a0dd',
-	created: 8347959,
+	addr: '0x18ad4958c5de39effcc74765df62fb469d99d72a',
+	created: 8355406,
 	
 	abi: 
 [
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "golemId",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint64",
-				"name": "blockNumber",
-				"type": "uint64"
-			},
-			{
-				"internalType": "bytes32",
-				"name": "blockHash",
-				"type": "bytes32"
-			},
-			{
-				"internalType": "bytes",
-				"name": "proof",
-				"type": "bytes"
-			}
-		],
-		"name": "claimGem",
-		"outputs": [
-			{
-				"internalType": "uint8",
-				"name": "gemGrade",
-				"type": "uint8"
-			}
-		],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
 	{
 		"inputs": [
 			{
@@ -49,7 +15,7 @@ const ContractMetadata = {
 			},
 			{
 				"internalType": "uint64",
-				"name": "_periodUpgrade",
+				"name": "_periodLv",
 				"type": "uint64"
 			}
 		],
@@ -74,60 +40,6 @@ const ContractMetadata = {
 		],
 		"name": "GemClaimed",
 		"type": "event"
-	},
-	{
-		"inputs": [],
-		"name": "generateGolem",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "payable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "to",
-				"type": "address"
-			},
-			{
-				"internalType": "uint8",
-				"name": "grade",
-				"type": "uint8"
-			},
-			{
-				"internalType": "uint8",
-				"name": "amount",
-				"type": "uint8"
-			}
-		],
-		"name": "transfer",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "to",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "golemId",
-				"type": "uint256"
-			}
-		],
-		"name": "transfer",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
 	},
 	{
 		"anonymous": false,
@@ -192,34 +104,16 @@ const ContractMetadata = {
 		"type": "event"
 	},
 	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "golemId",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint8",
-				"name": "gemGrade",
-				"type": "uint8"
-			}
-		],
-		"name": "upgrade",
+		"inputs": [],
+		"name": "GenerateCost",
 		"outputs": [
 			{
-				"internalType": "uint64",
+				"internalType": "uint256",
 				"name": "",
-				"type": "uint64"
+				"type": "uint256"
 			}
 		],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "withdraw",
-		"outputs": [],
-		"stateMutability": "nonpayable",
+		"stateMutability": "view",
 		"type": "function"
 	},
 	{
@@ -266,6 +160,40 @@ const ContractMetadata = {
 		"type": "function"
 	},
 	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "golemId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint64",
+				"name": "blockNumber",
+				"type": "uint64"
+			},
+			{
+				"internalType": "bytes32",
+				"name": "blockHash",
+				"type": "bytes32"
+			},
+			{
+				"internalType": "bytes",
+				"name": "proof",
+				"type": "bytes"
+			}
+		],
+		"name": "claimGem",
+		"outputs": [
+			{
+				"internalType": "uint8",
+				"name": "gemGrade",
+				"type": "uint8"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
 		"inputs": [],
 		"name": "coinbase",
 		"outputs": [
@@ -300,26 +228,13 @@ const ContractMetadata = {
 		"outputs": [
 			{
 				"internalType": "uint8",
-				"name": "lv",
+				"name": "st",
 				"type": "uint8"
 			},
 			{
 				"internalType": "bytes32",
 				"name": "rootHash",
 				"type": "bytes32"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "GenerateCost",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
 			}
 		],
 		"stateMutability": "view",
@@ -342,6 +257,19 @@ const ContractMetadata = {
 			}
 		],
 		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "generateGolem",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "payable",
 		"type": "function"
 	},
 	{
@@ -371,12 +299,12 @@ const ContractMetadata = {
 			},
 			{
 				"internalType": "uint32",
-				"name": "slot",
+				"name": "lv",
 				"type": "uint32"
 			},
 			{
 				"internalType": "uint32",
-				"name": "slotFilled",
+				"name": "upgradeUsed",
 				"type": "uint32"
 			}
 		],
@@ -402,6 +330,49 @@ const ContractMetadata = {
 				"internalType": "bool",
 				"name": "",
 				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "golemId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint64",
+				"name": "blockNumber",
+				"type": "uint64"
+			}
+		],
+		"name": "lvOf",
+		"outputs": [
+			{
+				"internalType": "uint32",
+				"name": "count",
+				"type": "uint32"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "golemId",
+				"type": "uint256"
+			}
+		],
+		"name": "lvOf",
+		"outputs": [
+			{
+				"internalType": "uint32",
+				"name": "count",
+				"type": "uint32"
 			}
 		],
 		"stateMutability": "view",
@@ -497,7 +468,7 @@ const ContractMetadata = {
 	},
 	{
 		"inputs": [],
-		"name": "periodUpgrade",
+		"name": "periodLv",
 		"outputs": [
 			{
 				"internalType": "uint64",
@@ -579,67 +550,34 @@ const ContractMetadata = {
 			},
 			{
 				"internalType": "uint8",
-				"name": "lv",
+				"name": "st",
 				"type": "uint8"
+			},
+			{
+				"internalType": "uint32",
+				"name": "gLv",
+				"type": "uint32"
+			},
+			{
+				"internalType": "uint64",
+				"name": "gPower",
+				"type": "uint64"
 			}
 		],
 		"name": "roll",
 		"outputs": [
 			{
+				"internalType": "bool",
+				"name": "isClear",
+				"type": "bool"
+			},
+			{
 				"internalType": "uint16[2]",
 				"name": "values",
 				"type": "uint16[2]"
-			},
-			{
-				"internalType": "uint64",
-				"name": "power",
-				"type": "uint64"
-			},
-			{
-				"internalType": "uint64",
-				"name": "difficulty",
-				"type": "uint64"
 			}
 		],
 		"stateMutability": "pure",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "golemId",
-				"type": "uint256"
-			}
-		],
-		"name": "slotFilledOf",
-		"outputs": [
-			{
-				"internalType": "uint32",
-				"name": "count",
-				"type": "uint32"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "golemId",
-				"type": "uint256"
-			}
-		],
-		"name": "slotOf",
-		"outputs": [
-			{
-				"internalType": "uint32",
-				"name": "count",
-				"type": "uint32"
-			}
-		],
-		"stateMutability": "view",
 		"type": "function"
 	},
 	{
@@ -666,6 +604,97 @@ const ContractMetadata = {
 			}
 		],
 		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "to",
+				"type": "address"
+			},
+			{
+				"internalType": "uint8",
+				"name": "grade",
+				"type": "uint8"
+			},
+			{
+				"internalType": "uint8",
+				"name": "amount",
+				"type": "uint8"
+			}
+		],
+		"name": "transfer",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "to",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "golemId",
+				"type": "uint256"
+			}
+		],
+		"name": "transfer",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "golemId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint8",
+				"name": "gemGrade",
+				"type": "uint8"
+			}
+		],
+		"name": "upgrade",
+		"outputs": [
+			{
+				"internalType": "uint64",
+				"name": "",
+				"type": "uint64"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "golemId",
+				"type": "uint256"
+			}
+		],
+		"name": "upgradeUsedOf",
+		"outputs": [
+			{
+				"internalType": "uint32",
+				"name": "count",
+				"type": "uint32"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "withdraw",
+		"outputs": [],
+		"stateMutability": "nonpayable",
 		"type": "function"
 	}
 ],
@@ -697,14 +726,16 @@ async function getEntry(contract, golemId, blockNumber) {
 		rootHash: response[1],
 	};
 }
-async function getStage(contract, rootHash, st) {
-	let response = await getAsync(contract.roll, [rootHash, st]);
+async function getStage(contract, rootHash, st, golemLv, golemPower) {
+	let response = await getAsync(contract.roll, [rootHash, st, golemLv, golemPower]);
 
 	return {
-		values: response[0].map(web3.toDecimal),
-		power: web3.toDecimal(response[1]),
-		difficulty: web3.toDecimal(response[2]),
+		isClear: response[0],
+		values: response[1].map(web3.toDecimal),
 	};
+}
+async function lvOf(contract, golemId, blockNumber) {
+	return web3.toDecimal(await getAsync(contract.lvOf, [golemId, blockNumber]));
 }
 async function powerOf(contract, golemId, blockNumber) {
 	return web3.toDecimal(await getAsync(contract.powerOf, [golemId, blockNumber]));

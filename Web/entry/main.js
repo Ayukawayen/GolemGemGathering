@@ -20,12 +20,16 @@ async function onLoaded() {
 	await initContract();
 	entry = await getEntry(contract, golemId, bnum);
 
-	entry.golemId = golemId;
 	entry.bnum = bnum;
-	entry.golemPower = await powerOf(contract, golemId, bnum);
+	entry.golem = {
+		id: golemId,
+		lv: await lvOf(contract, golemId, bnum),
+		power: await powerOf(contract, golemId, bnum),
+	};
+	
 	entry.stages = {};
-	for(let i=1;i<=entry.grade;++i) {
-		entry.stages[i] = await getStage(contract, entry.rootHash, i);
+	for(let st=1;st<=entry.grade;++st) {
+		entry.stages[st] = await getStage(contract, entry.rootHash, st, entry.golem.lv, entry.golem.power);
 	}
 console.log(entry);
 

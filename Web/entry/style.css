@@ -25,7 +25,7 @@ main.entry .stage {
 	
 	background-color:#f99;
 }s
-main.entry .stage[success] {
+main.entry .stage[clear] {
 	background-color:#9f9;
 }
 
@@ -57,7 +57,7 @@ main.entry .stage .result {
 	background-color:#900;
 	color:#fff;
 }
-main.entry .stage[success] .result {
+main.entry .stage[clear] .result {
 	background-color:#090;
 }
 main.entry .stage .result .power {
