@@ -70,7 +70,7 @@ main.home .golemList .golem >span.power {
 	width:4rem;
 	text-align:center;
 }
-main.home .golemList .golem >span.slot {
+main.home .golemList .golem >span.lv {
 	width:4rem;
 	text-align:center;
 }

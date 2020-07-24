@@ -158,27 +158,27 @@ contract Golem is GolemToken, GemToken {
 	constructor(uint64 _periodEntry, uint64 _periodUpgrade) GolemToken(_periodEntry, _periodUpgrade) public {
 	}
 	
-	function infoOf(uint golemId) public view returns (uint64 gen, address owner, uint64 power, uint32 slot, uint32 slotFilled) {
+	function infoOf(uint golemId) public view returns (uint64 gen, address owner, uint64 power, uint32 lv, uint32 upgradeUsed) {
 		gen = genOf(golemId);
 		owner = ownerOf(golemId);
 		power = powerOf(golemId);
-		slot = slotOf(golemId);
-		slotFilled = slotFilledOf(golemId);
+		lv = lvOf(golemId);
+		upgradeUsed = upgradeUsedOf(golemId);
 	}
 	
-	function slotOf(uint golemId) public view returns (uint32 count) {
+	function lvOf(uint golemId) public view returns (uint32 count) {
 		uint age = (block.number - uint(genOf(golemId))) / periodUpgrade;
 		while(++count <= age) {
 			if( count*(count+1)/2 > age ) return count;
 		}
 	}
-	function slotFilledOf(uint golemId) public view returns (uint32 count) {
+	function upgradeUsedOf(uint golemId) public view returns (uint32 count) {
 		return uint32(golems[golemId].powerHistorys.length);
 	}
 	
 	function upgrade(uint golemId, uint8 gemGrade) public returns (uint64) {
 		require(ownerOf(golemId) == msg.sender && msg.sender != address(0));
-		require(slotOf(golemId) > slotFilledOf(golemId));
+		require(lvOf(golemId) > upgradeUsedOf(golemId));
 		
 		_burn(msg.sender, gemGrade, 1);
 		

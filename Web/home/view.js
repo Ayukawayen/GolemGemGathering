@@ -66,7 +66,7 @@ Vue.component('home', {
 			template: '<div class="golem">'
 				+ '<span class="name"><a :href="golem | href">{{ golem | name }}</a></span>'
 				+ '<span class="power">{{ golem | power }}</span>'
-				+ '<span class="slot">{{ golem | slot }}</span>'
+				+ '<span class="slot">{{ golem | lv }}</span>'
 				+ '<span class="upgrade"><button :disabled="!isUpgradable()" @click="onUpgradeClick">強化</button></span>'
 				+ '<span class="transfer"><button @click="onTransferClick">發送</button></span>'
 			+ '</div>',
@@ -80,8 +80,8 @@ Vue.component('home', {
 				power: function(golem) {
 					return `+${golem.power}`;
 				},
-				slot: function(golem) {
-					return `${golem.slotFilled}/${golem.slot}`;
+				lv: function(golem) {
+					return `${golem.upgradeUsed}/${golem.lv}`;
 				},
 			},
 			
@@ -101,7 +101,7 @@ Vue.component('home', {
 				},
 				
 				isUpgradable: function(){
-					return this.golem.slotFilled < this.golem.slot;
+					return this.golem.upgradeUsed < this.golem.lv;
 				},
 			},
 		},

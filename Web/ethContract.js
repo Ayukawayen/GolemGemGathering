@@ -747,8 +747,8 @@ async function getGolem(contract, id) {
 		gen: web3.toDecimal(info[0]),
 		owner: info[1],
 		power: web3.toDecimal(info[2]),
-		slot: web3.toDecimal(info[3]),
-		slotFilled: web3.toDecimal(info[4]),
+		lv: web3.toDecimal(info[3]),
+		upgradeUsed: web3.toDecimal(info[4]),
 	};
 }
 async function getGolemOwnerHistory(contract, golemId) {
