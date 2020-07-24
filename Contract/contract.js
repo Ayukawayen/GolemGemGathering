@@ -229,20 +229,20 @@ contract Golem is GolemToken, GemToken {
 		return true;
 	}
 	
-	function entry(uint golemId, uint64 blockNumber, bytes32 blockHash) public view returns (uint8 lv, bytes32 rootHash) {
+	function entry(uint golemId, uint64 blockNumber, bytes32 blockHash) public view returns (uint8 st, bytes32 rootHash) {
 		rootHash = keccak256(abi.encodePacked(blockHash, golemId));
 		uint64 golemPower = powerOf(golemId, blockNumber);
 		
-		while(++lv < 64) {
-			(, uint64 power, uint64 difficulty) = roll(rootHash, lv);
+		while(++st < 64) {
+			(, uint64 power, uint64 difficulty) = roll(rootHash, st);
 			if(golemPower+power <= difficulty) break;
 		}
 	}
-	function roll(bytes32 rootHash, uint8 lv) public pure returns (uint16[2] memory values, uint64 power, uint64 difficulty) {
-		uint ihash = uint(keccak256(abi.encodePacked(rootHash, lv)));
+	function roll(bytes32 rootHash, uint8 st) public pure returns (uint16[2] memory values, uint64 power, uint64 difficulty) {
+		uint ihash = uint(keccak256(abi.encodePacked(rootHash, st)));
 		
-		uint64 d = uint64(lv)*32;
-		difficulty = d + uint64(lv)*uint64(lv+1)/2;
+		uint64 d = uint64(st)*32;
+		difficulty = d + uint64(st)*uint64(st+1)/2;
 		values[0] = uint16(ihash%d + 1);
 		values[1] = uint16((ihash/d)%d + 1);
 		power = values[0]+values[1];

@@ -9,9 +9,9 @@ Vue.component('entry', {
 		+ 	'<a :href="entry.golemId | golemIdHref">Golem #{{ entry.golemId }}</a> / '
 		+ 	'<a>Block #{{ entry.bnum }}</a>'
 		+ '</nav>'
-		+ '<div class="levelList">'
-		+ 	'<level v-for="(level,i) in entry.levels" :level="level" :lv="i" :isSuccess="i<entry.grade" :golemPower="entry.golemPower" :key="i">'
-		+ 	'</level>'
+		+ '<div class="stageList">'
+		+ 	'<stage v-for="(stage,i) in entry.stages" :stage="stage" :st="i" :isSuccess="i<entry.grade" :golemPower="entry.golemPower" :key="i">'
+		+ 	'</stage>'
 		+ '</div>'
 	+ '</main>',
 	filters: {
@@ -27,17 +27,17 @@ Vue.component('entry', {
 	},
 	
 	components: {
-		level: {
-			props: ['level', 'lv', 'golemPower', 'isSuccess'],
-			template: '<div class="level" :success="isSuccess">'
-				+ '<div class="lv">第 {{ lv }} 層</div>'
+		stage: {
+			props: ['stage', 'st', 'golemPower', 'isSuccess'],
+			template: '<div class="stage" :success="isSuccess">'
+				+ '<div class="st">第 {{ st }} 層</div>'
 				+ '<div class="item difficulty">'
-				+ 	'<div class="value">{{ level.difficulty }}</div>'
+				+ 	'<div class="value">{{ stage.difficulty }}</div>'
 				+ 	'<div class="label">難度</div>'
 				+ '</div>'
-				+ '<div class="item dice" v-for="(v,i) in level.values" :key="i">'
+				+ '<div class="item dice" v-for="(v,i) in stage.values" :key="i">'
 				+ 	'<div class="value">{{ v }}</div>'
-				+ 	'<div class="label">/ d{{ lv*32 }}</div>'
+				+ 	'<div class="label">/ d{{ st*32 }}</div>'
 				+ '</div>'
 				+ '<div class="item golemPower" :digit="golemPower.toString().length">'
 				+ 	'<div class="value">+{{ golemPower }}</div>'
@@ -57,7 +57,7 @@ Vue.component('entry', {
 			
 			methods: {
 				totalPower: function() {
-					return this.level.values.reduce((v,item)=>(v+item), this.golemPower);
+					return this.stage.values.reduce((v,item)=>(v+item), this.golemPower);
 				},
 			},
 		},

@@ -19,24 +19,24 @@ main nav >a[href] {
 }
 
 
-main.entry .level {
+main.entry .stage {
 	height:4.5rem;
 	margin:1px 0 0;
 	
 	background-color:#f99;
-}
-main.entry .level[success] {
+}s
+main.entry .stage[success] {
 	background-color:#9f9;
 }
 
-main.entry .level >div {
+main.entry .stage >div {
 	display:inline-block;
 	
 	text-align:center;
 	vertical-align:top;
 }
 
-main.entry .level .lv {
+main.entry .stage .st {
 	width:2rem;
 	padding:0.3rem 0.25rem 0;
 	
@@ -46,7 +46,7 @@ main.entry .level .lv {
 	background-color:#330;
 	color:#ccc;
 }
-main.entry .level .result {
+main.entry .stage .result {
 	float:right;
 	
 	width:4.5rem;
@@ -57,10 +57,10 @@ main.entry .level .result {
 	background-color:#900;
 	color:#fff;
 }
-main.entry .level[success] .result {
+main.entry .stage[success] .result {
 	background-color:#090;
 }
-main.entry .level .result .power {
+main.entry .stage .result .power {
 	font-size:1.5rem;
 	
 	margin:0 0 0.25rem;
@@ -68,7 +68,7 @@ main.entry .level .result .power {
 	text-align:center;
 }
 
-main.entry .level .item {
+main.entry .stage .item {
 	width:3.5rem;
 	height:3.5rem;
 	margin:0.5rem 0 0 0.5rem;
@@ -79,43 +79,43 @@ main.entry .level .item {
 	
 	border-color:transparent;
 }
-main.entry .level .item.difficulty {
+main.entry .stage .item.difficulty {
 	margin-right:1.5rem;
 	
 	background-color:#666;
 	color:#fff;
 }
-main.entry .level .item.golemPower {
+main.entry .stage .item.golemPower {
 	background-color:#fff;
 	border-color:#333;
 	color:#333;
 }
-main.entry .level .item.golemPower[digit="4"] .value {
+main.entry .stage .item.golemPower[digit="4"] .value {
 	transform: scale(0.8, 1);
 }
-main.entry .level .item.golemPower[digit="5"] .value {
+main.entry .stage .item.golemPower[digit="5"] .value {
 	transform: scale(0.66, 1);
 }
 
-main.entry .level .item.dice {
+main.entry .stage .item.dice {
 	background-color:#ccc;
 	border-color:#333;
 	color:#333;
 }
-main.entry .level .item.dice .label {
+main.entry .stage .item.dice .label {
 	transform: scale(0.9, 1);
 	transform-origin: right;
 	
 	color:#666;
 }
 
-main.entry .level .item .value {
+main.entry .stage .item .value {
 	font-size:1.25rem;
 	
 	height:1.25rem;
 	margin:0.75rem 0 0;
 }
-main.entry .level .item .label {
+main.entry .stage .item .label {
 	font-size:0.75rem;
 	
 	height:0.75rem;

@@ -697,8 +697,8 @@ async function getEntry(contract, golemId, blockNumber) {
 		rootHash: response[1],
 	};
 }
-async function getLevel(contract, rootHash, lv) {
-	let response = await getAsync(contract.roll, [rootHash, lv]);
+async function getStage(contract, rootHash, st) {
+	let response = await getAsync(contract.roll, [rootHash, st]);
 
 	return {
 		values: response[0].map(web3.toDecimal),

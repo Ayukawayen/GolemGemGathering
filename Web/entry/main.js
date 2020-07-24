@@ -23,9 +23,9 @@ async function onLoaded() {
 	entry.golemId = golemId;
 	entry.bnum = bnum;
 	entry.golemPower = await powerOf(contract, golemId, bnum);
-	entry.levels = {};
-	for(let lv=1;lv<=entry.grade;++lv) {
-		entry.levels[lv] = await getLevel(contract, entry.rootHash, lv);
+	entry.stages = {};
+	for(let i=1;i<=entry.grade;++i) {
+		entry.stages[i] = await getStage(contract, entry.rootHash, i);
 	}
 console.log(entry);
 
