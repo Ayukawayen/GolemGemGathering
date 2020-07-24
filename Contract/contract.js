@@ -43,7 +43,7 @@ contract GemToken {
 
 contract GolemToken {
 	uint64 public periodEntry;
-	uint64 public periodUpgrade;
+	uint64 public periodLv;
 	
 	address payable public coinbase;
 	uint public constant GenerateCost = 10 finney;
@@ -79,9 +79,9 @@ contract GolemToken {
 	
 	event Transfer(address indexed from, address indexed to, uint indexed golemId);
 
-	constructor(uint64 _periodEntry, uint64 _periodUpgrade) public {
+	constructor(uint64 _periodEntry, uint64 _periodLv) public {
 		periodEntry = _periodEntry;
-		periodUpgrade = _periodUpgrade;
+		periodLv = _periodLv;
 		
 		coinbase = msg.sender;
 	}
@@ -155,7 +155,7 @@ contract Golem is GolemToken, GemToken {
 
 	event GemClaimed(uint indexed golemId, uint64 blockNumber);
 	
-	constructor(uint64 _periodEntry, uint64 _periodUpgrade) GolemToken(_periodEntry, _periodUpgrade) public {
+	constructor(uint64 _periodEntry, uint64 _periodLv) GolemToken(_periodEntry, _periodLv) public {
 	}
 	
 	function infoOf(uint golemId) public view returns (uint64 gen, address owner, uint64 power, uint32 lv, uint32 upgradeUsed) {
@@ -167,7 +167,7 @@ contract Golem is GolemToken, GemToken {
 	}
 	
 	function lvOf(uint golemId) public view returns (uint32 count) {
-		uint age = (block.number - uint(genOf(golemId))) / periodUpgrade;
+		uint age = (block.number - uint(genOf(golemId))) / periodLv;
 		while(++count <= age) {
 			if( count*(count+1)/2 > age ) return count;
 		}

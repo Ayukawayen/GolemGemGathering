@@ -676,7 +676,7 @@ var contract;
 async function initContract() {
 	contract = web3.eth.contract(ContractMetadata.abi).at(ContractMetadata.addr);
 	contract.periodEntry = web3.toDecimal(await getAsync(contract.periodEntry));
-	contract.periodUpgrade = web3.toDecimal(await getAsync(contract.periodUpgrade));
+	contract.periodLv = web3.toDecimal(await getAsync(contract.periodLv));
 	contract.GenerateCost = await getAsync(contract.GenerateCost);
 }
 
