@@ -1,8 +1,8 @@
 'use strict';
 
 const ContractMetadata = {
-	addr: '0x18ad4958c5de39effcc74765df62fb469d99d72a',
-	created: 8355406,
+	addr: '0x13aff30af98c542bba77c2a43a53d69f05a0930d',
+	created: 8358060,
 	
 	abi: 
 [
