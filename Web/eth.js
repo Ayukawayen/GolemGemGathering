@@ -5,14 +5,21 @@ async function enableEth() {
 	if(!window.ethereum) {
 		return {error:'Non-Ethereum browser detected. Consider trying MetaMask.'};
 	}
-	if(ethereum.networkVersion != ContractMetadata.networkVersion) {
-		return {error:`Network error. Should be ${ContractMetadata.networkName} test-net.`};
-	}
 	try {
 		await ethereum.enable();
 	} catch (error) {
 		return {error:error.message};
 	}
+	
+	if(!NetworkData[ethereum.networkVersion]) {
+		let supportedNetworkNames = [];
+		for(let k in NetworkData) {
+			supportedNetworkNames.push(NetworkData[k].networkName);
+		}
+		return {error:`Network error. Should be ${supportedNetworkNames.join(' or ')} test-net.`};
+	}
+	
+	ContractMetadata.setNetwork(ethereum.networkVersion);
 	
 	ethereum.autoRefreshOnNetworkChange = false;
 	
