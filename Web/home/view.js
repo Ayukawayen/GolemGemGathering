@@ -99,7 +99,7 @@ Vue.component('home', {
 					if(!this.isUpgradable()) return;
 					let grade = prompt('Gem Grade:');
 					if(!grade) return;
-//console.log(gems);
+
 					upgrade(contract, this.golem.id, grade);
 				},
 				onTransferClick: function(){

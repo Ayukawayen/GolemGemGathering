@@ -31,7 +31,6 @@ async function onLoaded() {
 	for(let st=1;st<=entry.grade;++st) {
 		entry.stages[st] = await getStage(contract, entry.rootHash, st, entry.golem.lv, entry.golem.power);
 	}
-console.log(entry);
 
 	buildView();
 }

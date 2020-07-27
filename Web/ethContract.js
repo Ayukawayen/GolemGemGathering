@@ -833,7 +833,7 @@ async function getAccountGolems(contract, account) {
 		if(golem.owner != account) continue;
 		result.push(golem);
 	}
-//console.log(result);
+
 	return result;
 }
 
