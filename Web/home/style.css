@@ -17,13 +17,6 @@ main nav >a {
 main nav >a[href] {
 	color:#00f;
 }
-main nav .network {
-	float:right;
-	
-	font-size:1rem;
-	padding:0 0.25rem;
-	margin:0.25rem 0.25rem 0;
-}
 
 
 main.home .gemTitle, main.home .golemTitle {

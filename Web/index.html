@@ -6,26 +6,11 @@
 		<title>Toyama Duck</title>
 		<link rel="stylesheet" type="text/css" href="css/reset.css" />
 		<link rel="stylesheet" type="text/css" href="css/style.css" />
-		<style>
-			main >a {
-				display:block;
-				font-size:2rem;
-				padding:0.5rem;
-				text-align:center;
-			}
-		</style>
 	</head>
 	<body>
 		<header></header>
 		<main>
-			<a href="./home/" onClick="onHomeClick('Ropsten');">Ropsten</a>
-			<a href="./home/" onClick="onHomeClick('Goerli');">Goerli</a>
+			<a href="./home/">Home</a>
 		</main>
 	</body>
 </html>
-
-<script>
-	function onHomeClick(networkName) {
-		localStorage.setItem('NetworkName', networkName);
-	}
-</script>
