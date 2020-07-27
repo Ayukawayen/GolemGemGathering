@@ -59,7 +59,7 @@ main.golemDetail .entryList .entry >.owner {
 }
 
 main.golemDetail .entryList .entry >.grade {
-	width:4rem;
+	width:5rem;
 	padding:0.5rem 0.25rem;
 }
 main.golemDetail .entryList .entry.header >.grade {
