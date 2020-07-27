@@ -1,8 +1,26 @@
 'use strict';
 
+const NetworkData = ((name)=>({
+	Ropsten: {
+		networkName: 'Ropsten',
+		networkVersion: 3,
+		addr: '0x13Aff30af98C542bba77c2A43a53d69f05A0930d',
+		created: 8358060,
+	},
+	Goerli: {
+		networkName: 'Goerli',
+		networkVersion: 5,
+		addr: '0x43747403f71a878617d6af8d5a5f722490fadfcf',
+		created: 3109176,
+	},
+}[name]))(localStorage.getItem('NetworkName') == 'Goerli' ? 'Goerli' : 'Ropsten');
+
+
 const ContractMetadata = {
-	addr: '0x13aff30af98c542bba77c2a43a53d69f05a0930d',
-	created: 8358060,
+	networkName: NetworkData.networkName,
+	networkVersion: NetworkData.networkVersion,
+	addr: NetworkData.addr,
+	created: NetworkData.created,
 	
 	abi: 
 [

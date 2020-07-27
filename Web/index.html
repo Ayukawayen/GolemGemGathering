@@ -9,9 +9,15 @@
 	</head>
 	<body>
 		<header></header>
-		<main></main>
+		<main>
+			<a href="./home/" onClick="onHomeClick('Ropsten');">Ropsten</a>
+			<a href="./home/" onClick="onHomeClick('Goerli');">Goerli</a>
+		</main>
 	</body>
 </html>
 
 <script>
+	function onHomeClick(networkName) {
+		localStorage.setItem('NetworkName', networkName);
+	}
 </script>

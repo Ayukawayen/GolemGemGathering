@@ -5,11 +5,9 @@ async function enableEth() {
 	if(!window.ethereum) {
 		return {error:'Non-Ethereum browser detected. Consider trying MetaMask.'};
 	}
-	
-	if(ethereum.networkVersion != '3') {
-		return {error:'Network error. Should be Ropsten test-net.'};
+	if(ethereum.networkVersion != ContractMetadata.networkVersion) {
+		return {error:`Network error. Should be ${ContractMetadata.networkName} test-net.`};
 	}
-	
 	try {
 		await ethereum.enable();
 	} catch (error) {

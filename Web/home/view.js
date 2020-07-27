@@ -18,7 +18,7 @@ Vue.component('home', {
 		+ 	'</golem>'
 		+ '</div>'
 		+ '<div class="genGolem">'
-		+ 	'<button @click="onGenGolemClick">Get another Golem for 0.01 ETH(Ropsten)</button>'
+		+ 	'<button @click="onGenGolemClick">Get another Golem for 0.01 ETH({{ ContractMetadata.networkName }})</button>'
 		+ '</div>'
 	+ '</main>',
 	
