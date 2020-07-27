@@ -15,6 +15,10 @@ const NetworkData = ((name)=>({
 	},
 }[name]))(localStorage.getItem('NetworkName') == 'Goerli' ? 'Goerli' : 'Ropsten');
 
+NetworkData.setNetwork = (networkName)=>{
+	localStorage.setItem('NetworkName', networkName);
+	location.href = '../home/';
+};
 
 const ContractMetadata = {
 	networkName: NetworkData.networkName,

@@ -2,12 +2,17 @@
 
 Vue.component('golemDetail', {
 	props: ['golem'],
+	data: function(){
+		return {
+			links:[
+				{href:'../home', text:'Home'},
+				{href:false, text:`Golem #${golem.id}`},
+			],
+		};
+	},
 	
 	template: '<main class="golemDetail">'
-		+ '<nav>'
-		+ 	'<a href="../home">Home</a> / '
-		+ 	'<a>Golem #{{ golem.id }}</a>'
-		+ '</nav>'
+		+ '<navComp :links="links"></navComp>'
 		+ '<div class="openAll"><button @click="onOpenAllClick">全部顯示</button></div>'
 		+ '<div class="entryList">'
 		+ 	'<div class="entry header">'
@@ -115,4 +120,3 @@ Vue.component('entry', {
 		},
 	},
 })
-

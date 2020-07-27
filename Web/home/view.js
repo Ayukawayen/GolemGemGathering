@@ -2,11 +2,16 @@
 
 Vue.component('home', {
 	props: ['gems', 'golems'],
+	data: function(){
+		return {
+			links:[
+				{href:false, text:`Home`},
+			],
+		};
+	},
 	
 	template: '<main class="home">'
-		+ '<nav>'
-		+ 	'<a>Home</a>'
-		+ '</nav>'
+		+ '<navComp :links="links"></navComp>'
 		+ '<div class="golemTitle">Gems [{{ gems | gemAmount }}]</div>'
 		+ '<div class="gemList">'
 		+ 	'<gem v-for="(gem) in gems" :gem="gem" :key="gem.grade">'

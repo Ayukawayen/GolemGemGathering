@@ -3,12 +3,18 @@
 Vue.component('entry', {
 	props: ['entry'],
 	
+	data: function(){
+		return {
+			links:[
+				{href:'../home', text:'Home'},
+				{href:`../golem/?${entry.golem.id}`, text:`Golem #${entry.golem.id}`},
+				{href:false, text:`Block #${entry.bnum}`},
+			],
+		};
+	},
+	
 	template: '<main class="entry">'
-		+ '<nav>'
-		+ 	'<a href="../home">Home</a> / '
-		+ 	'<a :href="entry.golem.id | golemIdHref">Golem #{{ entry.golem.id }}</a> / '
-		+ 	'<a>Block #{{ entry.bnum }}</a>'
-		+ '</nav>'
+		+ '<navComp :links="links"></navComp>'
 		+ '<div class="stageList">'
 		+ 	'<stage v-for="(stage,i) in entry.stages" :stage="stage" :st="i" :golem="entry.golem" :isClear="i<entry.grade" :key="i">'
 		+ 	'</stage>'
