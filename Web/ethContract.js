@@ -3,13 +3,13 @@
 const NetworkData = {
 	'3': {
 		networkName: 'Ropsten',
-		addr: '0xd6d1cc11b00c3f8e2d04cda48a15d55e10b1d424',
-		created: 8383532,
+		addr: '0x89cc30c23a81fa6bb042b3b42d8beaf04935d0b4',
+		created: 8383832,
 	},
 	'5': {
 		networkName: 'Goerli',
-		addr: '0x7f37106a9407450f63731ff3bd0477461152db22',
-		created: 3123748,
+		addr: '0x73cc6f14f7cea3bbce7334218316fed085ed9e54',
+		created: 3124023,
 	},
 };
 
@@ -720,10 +720,10 @@ const ContractMetadata = {
 var contract;
 
 function sideOf(lv) {
-	return (lv+3)*(lv+3);
+	return (lv+2)*(lv+2);
 }
 function difficultyOf(st) {
-	return (st+3)*(st+3);
+	return (st+2)*(st+2);
 }
 
 async function initContract() {
