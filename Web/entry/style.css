@@ -85,6 +85,11 @@ main.entry .stage .item.difficulty {
 	background-color:#666;
 	color:#fff;
 }
+main.entry .stage .item.difficulty .value:after {
+	content:".5";
+	font-size:0.75rem;
+}
+
 main.entry .stage .item.golemPower {
 	background-color:#fff;
 	border-color:#333;
