@@ -38,12 +38,12 @@ Vue.component('entry', {
 			template: '<div class="stage" :clear="isClear">'
 				+ '<div class="st">第 {{ st }} 層</div>'
 				+ '<div class="item difficulty">'
-				+ 	'<div class="value">{{ st | difficulty }}</div>'
+				+ 	'<div class="value">{{ parseInt(st) | difficulty }}</div>'
 				+ 	'<div class="label">難度</div>'
 				+ '</div>'
 				+ '<div class="item dice" v-for="(v,i) in stage.values" :key="i">'
 				+ 	'<div class="value">{{ v }}</div>'
-				+ 	'<div class="label">/ d{{ golem.lv | side }}</div>'
+				+ 	'<div class="label">/ D{{ golem.lv | side }}</div>'
 				+ '</div>'
 				+ '<div class="item golemPower" :digit="golem.power.toString().length">'
 				+ 	'<div class="value">+{{ golem.power }}</div>'
@@ -60,10 +60,10 @@ Vue.component('entry', {
 					return value ? '通過' : '退卻';
 				},
 				difficulty:(st)=>{
-					return st*64;
+					return difficultyOf(st);
 				},
 				side:(lv)=>{
-					return lv*64;
+					return sideOf(lv);
 				},
 			},
 			

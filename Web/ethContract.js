@@ -719,6 +719,13 @@ const ContractMetadata = {
 
 var contract;
 
+function sideOf(lv) {
+	return lv*64;
+}
+function difficultyOf(st) {
+	return st*64;
+}
+
 async function initContract() {
 	contract = web3.eth.contract(ContractMetadata.abi).at(ContractMetadata.addr);
 	contract.periodEntry = web3.toDecimal(await getAsync(contract.periodEntry));

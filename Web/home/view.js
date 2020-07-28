@@ -90,7 +90,7 @@ Vue.component('home', {
 					return `+${golem.power}`;
 				},
 				dice: function(golem) {
-					return `2D${golem.lv*64}+${golem.power}`;
+					return `2D${sideOf(golem.lv)}+${golem.power}`;
 				},
 			},
 			
