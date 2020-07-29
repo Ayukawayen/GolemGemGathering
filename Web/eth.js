@@ -11,6 +11,10 @@ async function enableEth() {
 		return {error:error.message};
 	}
 	
+	for(let retry=0;retry<10;++retry) {
+		if(ethereum.networkVersion) break;
+	}
+	
 	if(!NetworkData[ethereum.networkVersion]) {
 		let supportedNetworkNames = [];
 		for(let k in NetworkData) {
