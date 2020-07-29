@@ -13,11 +13,7 @@ async function enableEth() {
 	
 	ethereum.autoRefreshOnNetworkChange = false;
 	
-	for(let retry=0;retry<10;++retry) {
-		if(ethereum.chainId) break;
-	}
-	
-	let networkVersion = parseInt(ethereum.chainId);
+	let networkVersion = await ethereum.request({ method: 'net_version' });
 	if(!NetworkData[networkVersion]) {
 		let supportedNetworkNames = [];
 		for(let k in NetworkData) {
