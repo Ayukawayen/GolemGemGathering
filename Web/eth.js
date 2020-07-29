@@ -15,12 +15,13 @@ async function enableEth() {
 		if(ethereum.networkVersion) break;
 	}
 	
-	if(!NetworkData[ethereum.networkVersion]) {
+	let networkVersion = ethereum.networkVersion;
+	if(!NetworkData[networkVersion]) {
 		let supportedNetworkNames = [];
 		for(let k in NetworkData) {
-			supportedNetworkNames.push(NetworkData[k].networkName);
+			supportedNetworkNames.push(`${NetworkData[k].networkName}(${k})`);
 		}
-		return {error:`Network error. Should be ${supportedNetworkNames.join(' or ')} test-net.`};
+		return {error:`Network error. Should be ${supportedNetworkNames.join(' or ')} test-net. You are using (${networkVersion})`};
 	}
 	
 	ContractMetadata.setNetwork(ethereum.networkVersion);
