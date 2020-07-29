@@ -224,6 +224,7 @@ contract Golem is GolemToken, GemToken {
 		require(owner == msg.sender && msg.sender != address(0));
 		
 		(gemGrade, ) = entry(golemId, blockNumber, blockHash);
+		gemGrade -= 1;
 		_mint(owner, gemGrade, 1);
 		
 		emit GemClaimed(golemId, blockNumber);

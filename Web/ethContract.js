@@ -3,13 +3,13 @@
 const NetworkData = {
 	'3': {
 		networkName: 'Ropsten',
-		addr: '0x89cc30c23a81fa6bb042b3b42d8beaf04935d0b4',
-		created: 8383832,
+		addr: '0xb538346edea06dbe177e4d613e589d5b3574ca05',
+		created: 8390559,
 	},
 	'5': {
 		networkName: 'Goerli',
-		addr: '0x73cc6f14f7cea3bbce7334218316fed085ed9e54',
-		created: 3124023,
+		addr: '0x8d2f60a1b41fdffe89f0dce887d07ef8c8c177f1',
+		created: 3130490,
 	},
 };
 
@@ -746,7 +746,7 @@ async function getEntry(contract, golemId, blockNumber) {
 	let block = await getAsync(web3.eth.getBlock, [blockNumber]);
 	let response = await getAsync(contract.entry, [golemId, blockNumber, block.hash]);
 	return {
-		grade: web3.toDecimal(response[0]),
+		st: web3.toDecimal(response[0]),
 		rootHash: response[1],
 	};
 }

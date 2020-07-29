@@ -89,7 +89,7 @@ Vue.component('entry', {
 		onGradeClick: async function(){
 			if(this.grade) return;
 			
-			this.grade = (await getEntry(contract, this.golem.id, this.entry.bnum)).grade;
+			this.grade = (await getEntry(contract, this.golem.id, this.entry.bnum)).st-1;
 			
 			this.store();
 		},
