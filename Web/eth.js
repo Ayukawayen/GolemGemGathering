@@ -11,11 +11,13 @@ async function enableEth() {
 		return {error:error.message};
 	}
 	
+	ethereum.autoRefreshOnNetworkChange = false;
+	
 	for(let retry=0;retry<10;++retry) {
-		if(ethereum.networkVersion) break;
+		if(ethereum.chainId) break;
 	}
 	
-	let networkVersion = ethereum.networkVersion;
+	let networkVersion = parseInt(ethereum.chainId);
 	if(!NetworkData[networkVersion]) {
 		let supportedNetworkNames = [];
 		for(let k in NetworkData) {
@@ -25,8 +27,6 @@ async function enableEth() {
 	}
 	
 	ContractMetadata.setNetwork(ethereum.networkVersion);
-	
-	ethereum.autoRefreshOnNetworkChange = false;
 	
 	window.web3 = new Web3(ethereum);
 	
