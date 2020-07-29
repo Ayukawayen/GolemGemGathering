@@ -170,10 +170,13 @@ contract Golem is GolemToken, GemToken {
 		return lvOf(golemId, uint64(block.number));
 	}
 	function lvOf(uint golemId, uint64 blockNumber) public view returns (uint32 count) {
-		uint age = (blockNumber - genOf(golemId)) / periodLv;
+		uint age = blockNumber - genOf(golemId);
+		if(age > blockNumber) return 0;
+		age /= periodLv;
 		while(++count <= age) {
-			if( count*count > age ) return count;
+			if( count*count > age ) break;
 		}
+		return count+1;
 	}
 	function upgradeUsedOf(uint golemId) public view returns (uint32 count) {
 		return uint32(golems[golemId].powerHistorys.length);
@@ -237,16 +240,18 @@ contract Golem is GolemToken, GemToken {
 		uint32 gLv = lvOf(golemId, blockNumber);
 		uint64 gPower = powerOf(golemId, blockNumber);
 		
-		while(++st < 64) {
+		st = 2;
+		while(st < 64) {
 			(bool isClear, ) = roll(rootHash, st, gLv, gPower);
 			if(!isClear) break;
+			++st;
 		}
 	}
 	function roll(bytes32 rootHash, uint8 st, uint32 gLv, uint64 gPower) public pure returns (bool isClear, uint16[2] memory values) {
 		uint ihash = uint(keccak256(abi.encodePacked(rootHash, st)));
 		
-		uint64 difficulty = uint64((st+2)*(st+2));
-		uint64 d = uint64((gLv+2)*(gLv+2));
+		uint64 difficulty = uint64((st)*(st));
+		uint64 d = uint64((gLv)*(gLv));
 		
 		values[0] = uint16(ihash%d + 1);
 		values[1] = uint16((ihash/d)%d + 1);

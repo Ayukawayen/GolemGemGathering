@@ -720,10 +720,10 @@ const ContractMetadata = {
 var contract;
 
 function sideOf(lv) {
-	return (lv+2)*(lv+2);
+	return (lv)*(lv);
 }
 function difficultyOf(st) {
-	return (st+2)*(st+2);
+	return (st)*(st);
 }
 
 async function initContract() {
