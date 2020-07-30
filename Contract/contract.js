@@ -169,14 +169,14 @@ contract Golem is GolemToken, GemToken {
 	function lvOf(uint golemId) public view returns (uint32 count) {
 		return lvOf(golemId, uint64(block.number));
 	}
-	function lvOf(uint golemId, uint64 blockNumber) public view returns (uint32 count) {
-		uint age = blockNumber - genOf(golemId);
-		if(age > blockNumber) return 0;
-		age /= periodLv;
-		while(++count <= age) {
-			if( count*count > age ) break;
+	function lvOf(uint golemId, uint64 blockNumber) public view returns (uint32 lv) {
+		uint64 gen = genOf(golemId);
+		if(blockNumber < gen) return 1;
+		uint age = (blockNumber - gen)/periodLv + 2;
+		while(++lv < age) {
+			if( lv*(lv+1)/2 >= age ) break;
 		}
-		return count+1;
+		return lv;
 	}
 	function upgradeUsedOf(uint golemId) public view returns (uint32 count) {
 		return uint32(golems[golemId].powerHistorys.length);

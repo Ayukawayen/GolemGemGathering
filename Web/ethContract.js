@@ -725,6 +725,10 @@ function sideOf(lv) {
 function difficultyOf(st) {
 	return (st)*(st);
 }
+function lvOfAge(n, gen) {
+	let age = Math.floor((n-gen)/contract.periodLv) + 2;
+	return Math.ceil( (Math.sqrt(age*8+1)-1) / 2 );
+}
 
 async function initContract() {
 	contract = web3.eth.contract(ContractMetadata.abi).at(ContractMetadata.addr);

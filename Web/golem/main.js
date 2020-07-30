@@ -43,7 +43,7 @@ async function onLoaded() {
 		
 		entry.owner = ownerHistory.length<=0 ? null : ownerHistory[ownerHistory.length-1].owner;
 		entry.power = powerHistory.length<=0 ? 0 : powerHistory[powerHistory.length-1].power;
-		entry.lv = Math.floor(Math.sqrt( (n-golem.gen)/contract.periodLv ))+2;
+		entry.lv = lvOfAge(n, golem.gen);
 		
 		golem.entrys.push(entry);
 		
