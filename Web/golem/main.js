@@ -20,6 +20,8 @@ async function onLoaded() {
 	await initContract();
 	golem = await getGolem(contract, golemId);
 	
+	if(!golem) return;
+	
 	golem.isOwned = golem.owner == web3.eth.defaultAccount;
 	
 	let ownerHistory = await getGolemOwnerHistory(contract, golemId);

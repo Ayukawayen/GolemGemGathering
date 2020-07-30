@@ -801,6 +801,7 @@ async function transferGem(contract, to, grade, amount) {
 
 async function getGolem(contract, id) {
 	let info = await getAsync(contract.infoOf, [id]);
+	if(info[0] <= 0) return null;
 	return {
 		id: id,
 		gen: web3.toDecimal(info[0]),
