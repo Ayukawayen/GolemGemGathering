@@ -251,8 +251,8 @@ contract Golem is GolemToken, GemToken {
 	function roll(bytes32 rootHash, uint8 st, uint32 gLv, uint64 gPower) public pure returns (bool isClear, uint16[2] memory values) {
 		uint ihash = uint(keccak256(abi.encodePacked(rootHash, st)));
 		
-		uint64 difficulty = uint64((st)*(st));
-		uint64 d = uint64((gLv)*(gLv));
+		uint64 difficulty = uint64(st)*uint64(st);
+		uint64 d = uint64(gLv)*uint64(gLv);
 		
 		values[0] = uint16(ihash%d + 1);
 		values[1] = uint16((ihash/d)%d + 1);
