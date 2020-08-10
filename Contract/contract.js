@@ -242,7 +242,7 @@ contract Golem is GolemToken, GemToken {
 		uint64 gPower = powerOf(golemId, blockNumber);
 		
 		st = 2;
-		while(st < 64) {
+		while(st <= 64) {
 			(bool isClear, ) = roll(rootHash, st, gLv, gPower);
 			if(!isClear) break;
 			++st;
