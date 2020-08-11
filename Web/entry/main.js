@@ -29,6 +29,7 @@ async function onLoaded() {
 	
 	entry.stages = {};
 	for(let st=2;st<=entry.st;++st) {
+		if(st > 64) break;
 		entry.stages[st] = await getStage(contract, entry.rootHash, st, entry.golem.lv, entry.golem.power);
 	}
 
