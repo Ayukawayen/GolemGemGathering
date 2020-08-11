@@ -16,7 +16,7 @@ Vue.component('entry', {
 	template: '<main class="entry">'
 		+ '<navComp :links="links"></navComp>'
 		+ '<div class="stageList">'
-		+ 	'<stage v-for="(stage,i) in entry.stages" :stage="stage" :st="i" :golem="entry.golem" :isClear="i<entry.st" :key="i">'
+		+ 	'<stage v-for="(stage,i) in entry.stages" :stage="stage" :st="i" :golem="entry.golem" :isClear="stage.isClear" :key="i">'
 		+ 	'</stage>'
 		+ '</div>'
 	+ '</main>',
