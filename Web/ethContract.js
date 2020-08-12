@@ -3,13 +3,13 @@
 const NetworkData = {
 	'3': {
 		networkName: 'Ropsten',
-		addr: '0x80c722f992b4e25efaca06de59c8ed316fcf5020',
-		created: 8396229,
+		addr: '0xd497db5a655920a392ed1f37a38ffbc84789565f',
+		created: 8479284,
 	},
 	'5': {
 		networkName: 'Goerli',
-		addr: '0x1c219929ce06bdf8cfa3954d2b57b7dec4fd7335',
-		created: 3135140,
+		addr: '0x10f551b2e1d3e75227eab60303ed5525a2652750',
+		created: 3210745,
 	},
 };
 
